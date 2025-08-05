@@ -36,10 +36,6 @@ class EmailNotifier(BaseNotifier):
 
     def send(self, target, subject, message):
 
-        # pref = NotificationPreference.objects.get(user=user)
-        # if not (pref.email and pref.email_verified):
-        #     raise DeliveryError("Email not configured")
-
         try:
 
             sg = SendGridAPIClient(settings.SENDGRID_API_KEY)
@@ -62,10 +58,6 @@ class SMSNotifier(BaseNotifier):
     CHANNEL_NAME = 'sms'
 
     def send(self, target, subject, message):
-
-        # pref = NotificationPreference.objects.get(user=user)
-        # if not (pref.phone and pref.phone_verified):
-        #     raise DeliveryError("SMS not configured")
 
         try:
             payload = {
@@ -94,10 +86,6 @@ class TelegramNotifier(BaseNotifier):
     CHANNEL_NAME = 'telegram'
 
     def send(self, target, subject, message):
-
-        # pref = NotificationPreference.objects.get(user=user)
-        # if not (pref.telegram_id and pref.telegram_verified):
-        #     raise DeliveryError("Telegram not configured")
 
         try:
             bot = Bot(token=settings.TELEGRAM_BOT_TOKEN)
