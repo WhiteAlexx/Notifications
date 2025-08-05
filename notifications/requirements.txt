@@ -1,0 +1,6 @@
+django==4.2
+celery
+sendgrid
+python-telegram-bot
+requests
+redis
